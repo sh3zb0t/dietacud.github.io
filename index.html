@@ -78,23 +78,31 @@
         <a href="#order" class="cta" >Zacznij już dziś!</a>
     </section>
 
-    <!-- Sekcja zamówienia -->
-    <section id="order">
-        <h2>Zamów teraz i zacznij swoją metamorfozę!</h2>
-        <form action="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.jbzd.com.pl%2Fcontents%2F2024%2F01%2Fsocial%2F8tiBKJ9vcO6kx8cGrXPNYxucKg34XmjO.jpg&f=1&nofb=1&ipt=b6ae69d5f45d6bf9e536777f18e15288824beddc42336fbc4ea197fc83321f25&ipo=images" method="POST">
-            <label for="name">Imię i nazwisko:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Adres e-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="phone">Numer telefonu:</label>
-            <input type="tel" id="phone" name="phone" required>
-            <label for="preferences">Preferencje żywieniowe (opcjonalnie):</label>
-            <input type="text" id="preferences" name="preferences">
-            <label for="message">Uwagi (opcjonalnie):</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Wyślij i zamów!</button>
-        </form>
-    </section>
+<!-- Sekcja zamówienia -->
+<section id="order">
+    <h2>Zamów teraz i zacznij swoją metamorfozę!</h2>
+    <form id="orderForm">
+        <label for="name">Imię i nazwisko:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Adres e-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Numer telefonu:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="preferences">Preferencje żywieniowe (opcjonalnie):</label>
+        <input type="text" id="preferences" name="preferences">
+        <label for="message">Uwagi (opcjonalnie):</label>
+        <textarea id="message" name="message"></textarea>
+        <button type="submit">Wyślij i zamów!</button>
+    </form>
+
+    <!-- Kontener dla bluru -->
+    <div id="blurBackground" class="hidden"></div>
+
+    <!-- Obrazek wynikowy -->
+    <div id="resultImage" class="hidden">
+        <img src="images/thank-you.jpg" alt="Dziękujemy za zamówienie" id="thankYouImage">
+    </div>
+</section>
 
     <!-- Stopka -->
     <footer>
@@ -105,5 +113,32 @@
             <li><a href="#contact">Kontakt</a></li>
         </ul>
     </footer>
+<script>
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Zapobiega domyślnej akcji formularza
+
+        // Wyświetlenie obrazka
+        document.getElementById('resultImage').classList.remove('hidden');
+
+        // Dodanie bluru do kontenera
+        const blurBackground = document.getElementById('blurBackground');
+        blurBackground.classList.add('active');
+
+        // Ukrycie obrazka po kliknięciu
+        document.addEventListener('click', function(event) {
+            const imageContainer = document.getElementById('resultImage');
+            const image = document.getElementById('thankYouImage');
+
+            // Sprawdzenie, czy kliknięcie było poza obrazkiem
+            if (imageContainer && !imageContainer.contains(event.target) && !image.contains(event.target)) {
+                imageContainer.classList.add('hidden');
+
+                // Usunięcie bluru
+                blurBackground.classList.remove('active');
+            }
+        }, { once: true }); // Dodajemy opcję, aby słuchacz zdarzeń został usunięty po pierwszym kliknięciu
+    });
+</script>
+
 </body>
 </html>
