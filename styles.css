@@ -259,3 +259,37 @@ footer ul li a {
         flex-direction: column;
     }
 }
+/* Galeria zdjęć */
+#gallery {
+    padding: 40px 20px;
+}
+
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery-item {
+    margin: 10px;
+    text-align: center;
+}
+
+.gallery-img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-img {
+        width: 100%;
+    }
+}
