@@ -110,11 +110,39 @@ h2 {
     margin: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: 30%;
+    text-align: center;
+}
+
+#testimonials .testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
 #testimonials .testimonial p {
     margin-bottom: 10px;
 }
+
+/* Responsywne opinie dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    #testimonials .testimonial {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #testimonials .testimonial {
+        width: 100%;
+    }
+
+    #testimonials .testimonial-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
 
 /* Formularz zamówienia */
 form {
