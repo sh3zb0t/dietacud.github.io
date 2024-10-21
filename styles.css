@@ -62,7 +62,8 @@ nav ul li a:hover {
 
 /* Baner główny */
 #hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
     color: #fff;
     height: 400px;
     display: flex;
@@ -113,3 +114,120 @@ h2 {
 
 #testimonials .testimonial p {
     margin-bottom: 10px;
+}
+
+/* Formularz zamówienia */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label, form input, form textarea {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Stopka */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer ul li {
+    margin: 0 20px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Media queries dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    /* Zmniejszamy rozmiar tekstu i układ na mniejszych ekranach */
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #hero h1 {
+        font-size: 1.8em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    #testimonials .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #testimonials .testimonial {
+        width: 80%;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    form input, form textarea {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Zmniejszamy elementy jeszcze bardziej dla małych ekranów */
+
+    #hero {
+        height: 300px;
+    }
+
+    #hero h1 {
+        font-size: 1.5em;
+    }
+
+    #hero p {
+        font-size: 0.9em;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    footer ul {
+        flex-direction: column;
+    }
+}
